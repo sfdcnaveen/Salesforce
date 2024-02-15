@@ -1,0 +1,20 @@
+<apex:page controller="AddProducts">
+  <h1>Add Multiple Contacts</h1>
+  <apex:form >
+      <apex:pageBlock >
+                <apex:commandButton value="Add Product" action="{!addProducts}"/>
+                <apex:commandButton value="Save" action="{!saveProducts}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                <apex:pageBlockSection columns="3">
+                      <apex:repeat value="{!pro}" var="pr">
+                          <apex:inputField value="{!pr.Product__c}" />
+                          <apex:inputField value="{!pr.IGST__c}"/>
+                          <apex:inputField value="{!pr.Unit_Price__c}"/>
+                          <apex:inputField value="{!pr.Quantity__c}"/>
+                          <apex:inputField value="{!pr.Discount_Type__c}"/>
+                          <apex:inputField value="{!pr.Discount_Value__c}"/>
+                      </apex:repeat>
+                </apex:pageBlockSection> 
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

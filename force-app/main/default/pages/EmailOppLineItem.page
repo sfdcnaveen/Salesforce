@@ -1,0 +1,16 @@
+<apex:page standardController="OpportunityLineItems__c" extensions="EmailOppLineItem" recordSetVar="oppt" setup="false" >
+  <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons >   
+            <apex:commandButton value="Send" action="{!sendemail}"/>
+            <apex:commandButton value="Cancel" action="{!cancelemail}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Opportunity Email">
+            <apex:inputText size="40" label="To: " value="{!To}"/>
+            <apex:inputText size="40" label="Cc: " value="{!Cc}"/>>
+            <apex:inputText size="40" label="Subject: " value="{!Subject}"/>
+            <apex:inputTextarea rows="10" richText="true" value="{!Emailbody}"/>
+    	</apex:pageBlockSection>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>

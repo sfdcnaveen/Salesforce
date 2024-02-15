@@ -1,0 +1,11 @@
+<apex:page controller="SelectOppController" action="{!displaySelectedOpportunities}" >
+<apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!selectedOpportunities}" var="opportunity">
+                <apex:column value="{!opportunity.Name}" headerValue="Opportunity Name"/>
+                <apex:column value="{!opportunity.Account_Name__c}" headerValue="Account Name"/>
+                <apex:column value="{!opportunity.Stage__c}" headerValue="Stage"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

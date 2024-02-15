@@ -1,0 +1,98 @@
+<apex:page controller="AccConOpp">
+  <apex:form >
+        <apex:pageMessages />
+        <apex:pageBlock title="Account Details">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save AccConOpp" action="{!SaveIt}" />
+                <apex:commandButton value="Cancel" action="{!cancelAction}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Enter Account Details" columns="2" >
+                <apex:inputField value="{!newAccount.Name}" required="true" />
+                <apex:inputField value="{!newAccount.ParentId}" />
+                <apex:inputField value="{!newAccount.AccountNumber}" />
+                <apex:inputField value="{!newAccount.Site}" />
+                <apex:inputField value="{!newAccount.Type}" />
+                <apex:inputField value="{!newAccount.Industry}" />
+                <apex:inputField value="{!newAccount.AnnualRevenue}" />
+                <apex:inputField value="{!newAccount.Rating}" />
+                <apex:inputField value="{!newAccount.Phone}" />
+                <apex:inputField value="{!newAccount.Fax}" />
+                <apex:inputField value="{!newAccount.Website}" />
+                <apex:inputField value="{!newAccount.TickerSymbol}" />
+                <apex:inputField value="{!newAccount.Ownership}" />
+                <apex:inputField value="{!newAccount.NumberOfEmployees}" />
+                <apex:inputField value="{!newAccount.Sic}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Enter Billing Address" columns="2">
+                <apex:inputField value="{!newAccount.BillingStreet}" />
+                <apex:inputField value="{!newAccount.BillingCity}" />
+                <apex:inputField value="{!newAccount.BillingState}" />
+                <apex:inputField value="{!newAccount.BillingPostalCode}" />
+                <apex:inputField value="{!newAccount.BillingCountry}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Enter Shipping Address" columns="2" >
+                <apex:inputField value="{!newAccount.ShippingStreet}" />
+                <apex:inputField value="{!newAccount.ShippingCity}" />
+                <apex:inputField value="{!newAccount.ShippingState}" />
+                <apex:inputField value="{!newAccount.ShippingPostalCode}" />
+                <apex:inputField value="{!newAccount.ShippingCountry}" />\
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information" columns="2" >
+                <apex:inputField value="{!newAccount.CustomerPriority__c}" />
+                <apex:inputField value="{!newAccount.NumberofLocations__c}" />
+                <apex:inputField value="{!newAccount.SLA__c}" />
+                <apex:inputField value="{!newAccount.SLAExpirationDate__c}" />
+                <apex:inputField value="{!newAccount.SLASerialNumber__c}" />
+                <apex:inputField value="{!newAccount.Active__c}" />
+                <apex:inputField value="{!newAccount.UpsellOpportunity__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Description Information" columns="2" collapsible="true">
+                <apex:inputField value="{!newAccount.Description}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Contact Details">
+            <apex:pageBlockSection title="Enter Contact Details" columns="2" >
+                <apex:inputField value="{!newContact.Salutation}" />
+                <apex:inputField value="{!newContact.FirstName}" />
+                <apex:inputField value="{!newContact.LastName}" required="true" />
+                <!-- <apex:inputField value="{!newContact.AccountId}" /> -->
+                <apex:inputField value="{!newContact.Phone}" />
+                <apex:inputField value="{!newContact.Email}" />
+                <apex:inputField value="{!newContact.MailingStreet}" />
+                <apex:inputField value="{!newContact.MailingCity}" />
+                <apex:inputField value="{!newContact.MailingPostalCode}" />
+                <apex:inputField value="{!newContact.MailingState}" />
+                <apex:inputField value="{!newContact.MailingCountry}" />
+                <apex:inputField value="{!newContact.Email}" />
+                <apex:inputField value="{!newContact.OtherStreet}" />
+                <apex:inputField value="{!newContact.OtherCity}" />
+                <apex:inputField value="{!newContact.OtherPostalCode}" />
+                <apex:inputField value="{!newContact.OtherState}" />
+                <apex:inputField value="{!newContact.OtherCountry}" />
+                <apex:inputField value="{!newContact.Languages__c}" />
+                <apex:inputField value="{!newContact.Level__c}" />
+                <apex:inputField value="{!newContact.Description}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Opportunity Details">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save AccConOpp" action="{!SaveIt}" />
+                <apex:commandButton value="Cancel" action="{!cancelAction}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Enter Opportunity Details" columns="2" >
+                <apex:inputField value="{!newOpportunity.Name}" required="true" />
+                <!-- <apex:inputField value="{!newOpportunity.Account_Name__c}"  /> -->
+                <apex:inputField value="{!newOpportunity.Contact_Name__c}" />
+                <apex:inputField value="{!newOpportunity.Email__c}" required="true" />
+                <apex:inputField value="{!newOpportunity.Stage__c}"  />
+                <apex:inputField value="{!newOpportunity.Close_Date__c}" />
+                <apex:inputField value="{!newOpportunity.Out_Of_State__c}" />
+                <apex:inputField value="{!newOpportunity.Lead_Source__c}"  />
+                <apex:inputField value="{!newOpportunity.Other_Lead_Source__c}" />
+                <apex:inputField value="{!newOpportunity.Reason_For_Lost__c}" />
+                <apex:inputField value="{!newOpportunity.Other_Reason_For_Lost__c}"  />
+                <apex:inputField value="{!newOpportunity.Remarks__c}" />
+           </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
