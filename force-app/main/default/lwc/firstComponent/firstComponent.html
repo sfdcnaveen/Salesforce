@@ -1,5 +1,12 @@
 <template>
-    <lightning-card title="First Component">
-        <lightning-input label="Enter value"></lightning-input>
+    <lightning-card title="First Component" background-color="red">
+        <div style="background-color:rgb(140, 220, 28)">
+            {welcomeNote}
+        </div>
+        <div class="firstClass" >
+            {welcomeNote}
+        </div>
+        
+        <lightning-input class="firstClass" label="Enter Value" onchange={handleInputChange}></lightning-input>
     </lightning-card>
 </template>

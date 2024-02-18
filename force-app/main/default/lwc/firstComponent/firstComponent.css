@@ -1,0 +1,6 @@
+.firstClass{
+    background-color: aquamarine;
+}
+.firstClass:hover{
+    background-color: cornflowerblue;
+}
