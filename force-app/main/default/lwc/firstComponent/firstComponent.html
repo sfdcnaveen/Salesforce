@@ -1,12 +1,29 @@
 <template>
-    <lightning-card title="First Component" background-color="red">
-        <div style="background-color:rgb(140, 220, 28)">
-            {welcomeNote}
-        </div>
-        <div class="firstClass" >
-            {welcomeNote}
-        </div>
-        
-        <lightning-input class="firstClass" label="Enter Value" onchange={handleInputChange}></lightning-input>
-    </lightning-card>
+  <lightning-card title="First Component" background-color="red">
+    <div style="background-color: rgb(140, 220, 28)">{welcomeNote}</div>
+    <div class="firstClass">{welcomeNote}</div>
+
+    <lightning-input
+      class="firstClass"
+      label="Enter Value"
+      onchange={handleInputChange}
+    ></lightning-input>
+    <lightning-input
+      label="Enter text"
+      value={newText}
+      onchange={handleInputChange}
+    ></lightning-input>
+    <lightning-button label="Add" onclick={handleAddClick}></lightning-button>
+    <lightning-button
+      label="Remove"
+      onclick={handleRemoveClick}
+    ></lightning-button>
+    <template if:true={items.length}>
+      <ul>
+        <template for:each={items} for:item="item">
+          <li key={item}>{item}</li>
+        </template>
+      </ul>
+    </template>
+  </lightning-card>
 </template>
