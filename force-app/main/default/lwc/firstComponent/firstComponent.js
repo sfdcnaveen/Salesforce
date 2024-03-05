@@ -4,6 +4,7 @@ export default class FirstComponent extends LightningElement {
   @track welcomeNote = "Hello, Good Morning!";
   @track newText = "";
   @track items = [];
+  students = ['HariTeja','Naveen','Nageswari','Lakshmi','Srinivasulu'];
   handleInputChange(event) {
     this.welcomeNote = event.target.value;
     this.newText = event.target.value;

@@ -2,22 +2,26 @@
   <lightning-card title="First Component" background-color="red">
     <div style="background-color: rgb(140, 220, 28)">{welcomeNote}</div>
     <div class="firstClass">{welcomeNote}</div>
-
-    <lightning-input
-      class="firstClass"
-      label="Enter Value"
-      onchange={handleInputChange}
-    ></lightning-input>
-    <lightning-input
-      label="Enter text"
-      value={newText}
-      onchange={handleInputChange}
-    ></lightning-input>
+    <table class="slds-table slds-table_bordered">
+      <thead>
+        <tr>
+          <th scope="col">Index</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template for:each={students} for:item="item" for:index="index">
+          <tr key={item.index}>
+            <td>{index}</td>
+            <td>{item}</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    <lightning-input class="firstClass" label="Enter Value" onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Enter text" value={newText} onchange={handleInputChange}></lightning-input>
     <lightning-button label="Add" onclick={handleAddClick}></lightning-button>
-    <lightning-button
-      label="Remove"
-      onclick={handleRemoveClick}
-    ></lightning-button>
+    <lightning-button label="Remove" onclick={handleRemoveClick}></lightning-button>
     <template if:true={items.length}>
       <ul>
         <template for:each={items} for:item="item">
