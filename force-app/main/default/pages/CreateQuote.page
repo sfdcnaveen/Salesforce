@@ -1,0 +1,24 @@
+<apex:page controller="CreateQuoteController" showHeader="false">
+<apex:form >
+    <apex:pageBlock >
+          <apex:pageBlockButtons >
+              <apex:commandButton value="Save" action="{!save}"/>
+              <apex:commandButton value="Cancel" action="{!cancel}"/>
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection title="Quote Details">
+                      <apex:outputField value="{!opp.Account_Name__c}"/>
+                      <apex:outputField value="{!opp.Contact_Name__c}"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection title="Quote Line Items">
+          <apex:pageBlockTable value="{!lioppli}" var="li" style="width:150%" id="pp">
+                <apex:column headerValue="Account Name"><apex:outputfield value="{!opp.Account_Name__r.Name}"/></apex:column>
+                <apex:column headerValue="Opportunity Name"><apex:outputfield value="{!li.Opportunity_Name__c}"/></apex:column>
+                <apex:column headerValue="Product Name"><apex:inputfield value="{!li.Product__c}"/></apex:column>
+                <apex:column headerValue="Quantity"><apex:inputfield value="{!li.Quantity__c}"/></apex:column>
+                <apex:column headerValue="Unit Price"><apex:inputfield value="{!li.Unit_Price__c}"/></apex:column>
+                <apex:column headerValue="Total Amount"><apex:outputfield value="{!li.Total_Price__c}"/></apex:column>
+           </apex:pageBlockTable>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+</apex:form>
+</apex:page>

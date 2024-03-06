@@ -1,0 +1,26 @@
+<apex:page controller="EditAllSalesordersLiController">
+  <h1>Edit All Salesorders Line Items</h1>
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockButtons >
+        <apex:commandButton value="Update" action="{!updateSalesorderLi}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+      </apex:pageBlockButtons>
+      
+      <apex:pageBlockTable value="{!relatedSalesorderLi}" var="ro" >
+        <apex:column headerValue="Opportunity Name"><apex:inputField value="{!ro.Opportunity_Name__r.Name}"/></apex:column>
+        <apex:column headerValue="OppLineItem Name"><apex:inputField value="{!ro.Name}"/></apex:column>
+        <apex:column headerValue="Actual Price"><apex:inputField value="{!ro.Actual_Price__c}"/></apex:column>
+        <apex:column headerValue="Unit Price"><apex:inputField value="{!ro.Unit_Price__c}"/></apex:column>
+        
+        <apex:variable value="{!0}" var="rownumber"/>
+        <apex:column >
+          <apex:commandButton value="Delete" action="{!del}" reRender="pgi" immediate="true">
+            <apex:param name="index" value="{!myvar}" assignTo="{!index}"/>
+          </apex:commandButton>
+          <apex:variable var="myvar" value="{!myvar+1}"/>
+        </apex:column>
+      </apex:pageBlockTable> 
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>
