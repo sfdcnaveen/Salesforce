@@ -2,12 +2,15 @@ import { LightningElement, track } from "lwc";
 
 export default class FirstComponent extends LightningElement {
   @track welcomeNote = "Hello, Good Morning!";
+  @track showRed = false;
   @track newText = "";
   @track items = [];
+  @track checkboxSelected = false;
   students = ['HariTeja','Naveen','Nageswari','Lakshmi','Srinivasulu'];
   handleInputChange(event) {
     this.welcomeNote = event.target.value;
     this.newText = event.target.value;
+    this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
   }
   handleAddClick() {
     if (this.newText) {
@@ -19,5 +22,10 @@ export default class FirstComponent extends LightningElement {
   handleRemoveClick() {
     //pop method removes the last element of the array
     this.items.pop();
+  }
+  handleChange(event){
+    this.checkboxSelected = event.target.checked;
+    console.log(this.checkboxSelected);
+    this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
   }
 }
