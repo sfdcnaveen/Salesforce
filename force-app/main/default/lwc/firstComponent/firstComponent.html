@@ -1,7 +1,11 @@
 <template>
   <lightning-card title="First Component" background-color="red">
-    <div style="background-color: rgb(140, 220, 28)">{welcomeNote}</div>
-    <div class="firstClass">{welcomeNote}</div>
+    <template if:true={showRed}>
+      <div style="background-color: red">{welcomeNote}</div>
+    </template>
+    <template if:false={showRed}>
+      <div class="firstClass">{welcomeNote}</div>
+    </template>
     <table class="slds-table slds-table_bordered">
       <thead>
         <tr>
