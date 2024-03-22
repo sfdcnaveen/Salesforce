@@ -1,8 +1,10 @@
-import { LightningElement, api,wire } from 'lwc';
+import { LightningElement, wire, api } from 'lwc';
 import pubsub from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation';
+import { unregisterListener } from '../pubsub/pubsub';
 
-export default class ChildComponent extends LightningElement {
+
+export default class SecondComponent extends LightningElement {
     value = ['HariTeja'];
     @wire(CurrentPageReference)
     pageRef;
@@ -18,13 +20,13 @@ export default class ChildComponent extends LightningElement {
         ];
     }
     connectedCallback(){
-        pubsub.registerListener('firstHit',this.valuesFromParent,this);
+        pubsub.registerListener('secondHit',this.handleInputChange,this);
     }
     disconnectedCallback(){
-        pubsub.unregisterListener(this);
+        unregisterListener(this);
     }
     @api
-    valuesFromParent(fName) {
-        this.value = fName.split(',');
+    handleInputChange(event){
+        this.value = event.target.value;
     }
 }
