@@ -1,7 +1,6 @@
 import { LightningElement, wire, api } from 'lwc';
 import pubsub from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation';
-import { unregisterListener } from '../pubsub/pubsub';
 
 
 export default class SecondComponent extends LightningElement {
@@ -21,9 +20,6 @@ export default class SecondComponent extends LightningElement {
     }
     connectedCallback(){
         pubsub.registerListener('secondHit',this.handleInputChange,this);
-    }
-    disconnectedCallback(){
-        unregisterListener(this);
     }
     @api
     handleInputChange(event){

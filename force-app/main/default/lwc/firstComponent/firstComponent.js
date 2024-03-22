@@ -21,8 +21,8 @@ export default class FirstComponent extends LightningElement {
     this.welcomeNote = event.target.value;
     this.newText = event.target.value;
     //this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
-    //pubsub.fireEvent(this.pageRef,'firstHit',this.welcomeNote);
-    pubsub.fireEvent(this.pageRef,'secondHit',this.welcomeNote);
+    pubsub.fireEvent(this.pageRef,'firstHit',this.welcomeNote);
+    //pubsub.fireEvent(this.pageRef,'secondHit',this.welcomeNote);
 
   }
   handleAddClick() {
