@@ -1,4 +1,7 @@
-import { LightningElement, track } from "lwc";
+import { LightningElement, track, wire } from "lwc";
+import pubsub from 'c/pubsub';
+import { CurrentPageReference } from 'lightning/navigation'
+
 
 export default class FirstComponent extends LightningElement {
   @track welcomeNote = "Hello, Good Morning!";
@@ -7,6 +10,10 @@ export default class FirstComponent extends LightningElement {
   @track items = [];
   @track checkboxSelected = false;
   students = ['HariTeja','Naveen','Nageswari','Lakshmi','Srinivasulu'];
+  
+  @wire(CurrentPageReference)
+  pageRef;
+
   get showRed(){
     return this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
   }
@@ -14,6 +21,9 @@ export default class FirstComponent extends LightningElement {
     this.welcomeNote = event.target.value;
     this.newText = event.target.value;
     //this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
+    //pubsub.fireEvent(this.pageRef,'firstHit',this.welcomeNote);
+    pubsub.fireEvent(this.pageRef,'secondHit',this.welcomeNote);
+
   }
   handleAddClick() {
     if (this.newText) {
