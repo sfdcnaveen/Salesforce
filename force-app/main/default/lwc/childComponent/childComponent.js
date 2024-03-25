@@ -20,6 +20,9 @@ export default class ChildComponent extends LightningElement {
     connectedCallback(){
         pubsub.registerListener('firstHit',this.valuesFromParent,this);
     }
+    disconnectedCallback(){
+        pubsub.unregisterAllListeners('firstHit',this.valuesFromParent,this);
+    }
     @api
     valuesFromParent(fName) {
         this.value = fName.split(',');

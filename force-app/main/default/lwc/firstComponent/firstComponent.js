@@ -1,7 +1,6 @@
 import { LightningElement, track, wire } from "lwc";
-import pubsub from 'c/pubsub';
-import { CurrentPageReference } from 'lightning/navigation'
-
+import pubsub from "c/pubsub";
+import { CurrentPageReference } from "lightning/navigation";
 
 export default class FirstComponent extends LightningElement {
   @track welcomeNote = "Hello, Good Morning!";
@@ -9,21 +8,28 @@ export default class FirstComponent extends LightningElement {
   @track newText = "";
   @track items = [];
   @track checkboxSelected = false;
-  students = ['HariTeja','Naveen','Nageswari','Lakshmi','Srinivasulu'];
-  
+  students = ["HariTeja", "Naveen", "Nageswari", "Lakshmi", "Srinivasulu"];
+
   @wire(CurrentPageReference)
   pageRef;
 
-  get showRed(){
-    return this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
+  get showRed() {
+    return (
+      this.welcomeNote === undefined ||
+      this.welcomeNote === null ||
+      this.welcomeNote === "" ||
+      !this.checkboxSelected
+    );
   }
   handleInputChange(event) {
     this.welcomeNote = event.target.value;
-    this.newText = event.target.value;
     //this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;
-    pubsub.fireEvent(this.pageRef,'firstHit',this.welcomeNote);
-    //pubsub.fireEvent(this.pageRef,'secondHit',this.welcomeNote);
-
+    pubsub.fireEvent(this.pageRef, "firstHit", this.welcomeNote);
+    //pubsub.fireEvent(this.pageRef, "secondHit", this.welcomeNote);
+  }
+  handleInputChange2(event) {
+    this.newText = event.target.value;
+    pubsub.fireEvent(this.pageRef, "secondHit", this.welcomeNote);
   }
   handleAddClick() {
     if (this.newText) {
@@ -36,7 +42,7 @@ export default class FirstComponent extends LightningElement {
     //pop method removes the last element of the array
     this.items.pop();
   }
-  handleChange(event){
+  handleChange(event) {
     this.checkboxSelected = event.target.checked;
     console.log(this.checkboxSelected);
     //this.showRed = this.welcomeNote === undefined || this.welcomeNote === null || this.welcomeNote === '' || !this.checkboxSelected;

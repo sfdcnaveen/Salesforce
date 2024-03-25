@@ -21,8 +21,12 @@ export default class SecondComponent extends LightningElement {
     connectedCallback(){
         pubsub.registerListener('secondHit',this.handleInputChange,this);
     }
+    disconnectedCallback(){
+        pubsub.unregisterAllListeners('secondHit',this.handleInputChange,this);
+    }
     @api
     handleInputChange(event){
         this.value = event.target.value;
+        console.log(this.value);
     }
 }

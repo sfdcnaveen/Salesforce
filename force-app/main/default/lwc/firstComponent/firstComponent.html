@@ -23,7 +23,7 @@
       </tbody>
     </table>
     <lightning-input class="firstClass" label="Enter Value" onchange={handleInputChange}></lightning-input>
-    <lightning-input label="Enter text" value={newText} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Enter text" value={newText} onchange={handleInputChange2}></lightning-input>
     <lightning-button label="Add" onclick={handleAddClick}></lightning-button>
     <lightning-button label="Remove" onclick={handleRemoveClick}></lightning-button>
     <template if:true={items.length}>
