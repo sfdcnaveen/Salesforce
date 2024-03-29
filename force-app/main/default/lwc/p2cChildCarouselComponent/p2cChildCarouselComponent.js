@@ -1,3 +1,5 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
-export default class P2cChildCarouselComponent extends LightningElement {}
+export default class P2cChildCarouselComponent extends LightningElement {
+    @api carouselDetails;
+}

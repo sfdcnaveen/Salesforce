@@ -1,12 +1,11 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement,wire } from 'lwc';
 import pubsub from 'c/pubsub';
-import { CurrentPageReference } from 'lightning/navigation';
-
-
-export default class SecondComponent extends LightningElement {
+import {CurrentPageReference} from 'lightning/navigation';
+export default class Subscriber1 extends LightningElement {
+    message 
     value = ['HariTeja'];
     @wire(CurrentPageReference)
-    pageRef;
+    pageRef
     get options() {
         return [
             { label: 'Naveen', value: 'Naveen' },
@@ -19,13 +18,12 @@ export default class SecondComponent extends LightningElement {
         ];
     }
     connectedCallback(){
-        pubsub.registerListener('secondHit',this.handleInputChange,this);
-    }
+        this.callSubscriber();
+    }  
     disconnectedCallback(){
-        pubsub.unregisterAllListeners('secondHit',this.handleInputChange,this);
+        pubsub.unregisterAllListeners(this);
     }
-    @api
-    handleInputChange(event){
-        this.checkboxSelected = event.target.checked;
+    callSubscriber(){
+        pubsub.registerListener('textData1', (message)=>{this.message=message},this)
     }
 }
