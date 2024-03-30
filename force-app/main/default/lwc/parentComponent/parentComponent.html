@@ -1,16 +1,18 @@
 <template>
-    <lightning-layout>
-        <lightning-layout-item size="6">
-            <lightning-card title="Left Component">
-                <lightning-input label="Enter student Name" onchange={handleInput}></lightning-input>
-                <c-child-component first-label="Enter Father Name"></c-child-component>
-            </lightning-card>
-        </lightning-layout-item>
-        <lightning-layout-item size="6">
-            <lightning-card title="Right Component">
-                <c-child-component first-label="Enter Mother Name"></c-child-component>
-            </lightning-card>
-        </lightning-layout-item>
-    </lightning-layout>
-    
+  <lightning-layout>
+    <lightning-layout-item size="6">
+      <lightning-card title="Left Component">
+        <lightning-input
+          label="Enter student Name"
+          onchange={handleInput}
+        ></lightning-input>
+        <c-child-component first-label="Enter Father Name"></c-child-component>
+      </lightning-card>
+    </lightning-layout-item>
+    <lightning-layout-item size="6">
+      <lightning-card title="Right Component">
+        <c-child-component first-label="Enter Mother Name"></c-child-component>
+      </lightning-card>
+    </lightning-layout-item>
+  </lightning-layout>
 </template>

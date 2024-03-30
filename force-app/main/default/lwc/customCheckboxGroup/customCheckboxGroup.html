@@ -1,12 +1,20 @@
 <!-- sldsValidatorIgnore -->
 <!-- sldsValidatorIgnore -->
 <template>
-    <lightning-card title="Custom Checkbox Group">       
-        <lightning-input label="Enter student Name" onchange={handleInput}></lightning-input>
-        <template for:each={updatedOptions} for:item="option">
-            <input type="checkbox" name="checkboxGroup" checked={option.isChecked} key={option.label}>
-            <label for={option.label} key={option.label}>{option.label}</label>
-            <br key={option.label} />
-        </template>
-    </lightning-card>
+  <lightning-card title="Custom Checkbox Group">
+    <lightning-input
+      label="Enter student Name"
+      onchange={handleInput}
+    ></lightning-input>
+    <template for:each={updatedOptions} for:item="option">
+      <input
+        type="checkbox"
+        name="checkboxGroup"
+        checked={option.isChecked}
+        key={option.label}
+      />
+      <label for={option.label} key={option.label}>{option.label}</label>
+      <br key={option.label} />
+    </template>
+  </lightning-card>
 </template>

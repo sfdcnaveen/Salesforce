@@ -1,6 +1,6 @@
-.firstClass{
-    background-color: yellow;
+.firstClass {
+  background-color: yellow;
 }
-.firstClass:hover{
-    background-color: cornflowerblue;
+.firstClass:hover {
+  background-color: cornflowerblue;
 }
