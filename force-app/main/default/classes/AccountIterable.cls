@@ -3,5 +3,4 @@ public class AccountIterable implements Iterable<Account> {
       List<Account> accounts =[SELECT Id, Name FROM Account];
       return new AccountIterator(accounts);
    }
-
 }

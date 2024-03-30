@@ -1,0 +1,29 @@
+<apex:page controller="CreateInvoiceController" showHeader="false">
+  <apex:form >
+  <apex:pageBlock >
+          <apex:pageBlockButtons >
+              <apex:commandButton value="Save" action="{!save}"/>
+              <apex:commandButton value="Cancel" action="{!cancel}"/>
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection title="Quote Details">
+                      <apex:outputField value="{!s.Account__c}"/>
+                      <apex:outputField value="{!s.Contact__c}"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection title="Select Warehouse">
+              <apex:pageBlockTable value="{!i}" var="i">
+                  <apex:column headerValue="Warehouse"><apex:inputField value="{!i.Ware_House__c}"/></apex:column>
+              </apex:pageBlockTable>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection title="Invoice Line Items">
+          <apex:pageBlockTable value="{!lislip}" var="li" style="width:150%" id="pp">
+                <apex:column headerValue="Account Name"><apex:outputfield value="{!s.Account__r.Name}"/></apex:column>
+                <apex:column headerValue="Salesorder Name"><apex:outputfield value="{!li.Salesorder_Name__c}"/></apex:column>
+                <apex:column headerValue="Product Name"><apex:inputfield value="{!li.Product__c}"/></apex:column>
+                <apex:column headerValue="Quantity"><apex:inputfield value="{!li.Quantity__c}"/></apex:column>
+                <apex:column headerValue="Unit Price"><apex:inputfield value="{!li.Unit_Price__c}"/></apex:column>
+                <apex:column headerValue="Total Amount"><apex:outputfield value="{!li.Total_Price__c}"/></apex:column>
+           </apex:pageBlockTable>
+          </apex:pageBlockSection>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>
