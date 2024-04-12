@@ -1,0 +1,126 @@
+<template>
+  <lightning-card title="ACC-CON-OPP">
+    <div class="slds-m-around_medium">
+      <lightning-accordion allow-multiple-sections-open>
+        <lightning-accordion-section label="Account">
+          <lightning-record-edit-form object-api-name="Account">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Name"
+                  value={accountName}
+                  onchange={handleaccountName}
+                ></lightning-input-field>
+                <lightning-input-field
+                  field-name="Phone"
+                  value={accphone}
+                  onchange={handleaccphone}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Industry"
+                  value={accind}
+                  onchange={handleaccind}
+                ></lightning-input-field>
+                <lightning-input-field
+                  field-name="Website"
+                  value={accweb}
+                  onchange={handleaccweb}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Rating"
+                  value={accrating}
+                  onchange={handleaccrating}
+                ></lightning-input-field>
+                <lightning-input-field
+                  field-name="Description"
+                  value={accrdesc}
+                  onchange={handleaccrdesc}
+                ></lightning-input-field>
+              </div>
+            </div>
+          </lightning-record-edit-form>
+        </lightning-accordion-section>
+        <lightning-accordion-section label="Contact">
+          <lightning-record-edit-form object-api-name="Contact">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="FirstName"
+                  value={firstName}
+                  onchange={handlefirstName}
+                ></lightning-input-field>
+                <lightning-input-field
+                  field-name="LastName"
+                  value={lastName}
+                  onchange={handlelastName}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Title"
+                  value={contitle}
+                  onchange={handlecontitle}
+                ></lightning-input-field>
+                <lightning-input-field
+                  field-name="Phone"
+                  value={conPhone}
+                  onchange={handleconPhone}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Email"
+                  value={conemail}
+                  onchange={handleconemail}
+                ></lightning-input-field>
+              </div>
+            </div>
+          </lightning-record-edit-form>
+        </lightning-accordion-section>
+        <lightning-accordion-section label="Opportunity">
+          <lightning-record-edit-form object-api-name="Opportunity">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Name"
+                  value={oppname}
+                  onchange={handleoppoppname}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="StageName"
+                  value={oppstagename}
+                  onchange={handleoppstagename}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="CloseDate"
+                  value={oppclosedate}
+                  onchange={handleoppclosedate}
+                ></lightning-input-field>
+              </div>
+            </div>
+          </lightning-record-edit-form>
+        </lightning-accordion-section>
+      </lightning-accordion>
+      <div class="slds-m-top_medium slds-align_absolute-center">
+        <lightning-button
+          label="Save"
+          onclick={handleSave}
+          variant="brand"
+        ></lightning-button>
+        <lightning-button
+          class="slds-m-left_small"
+          label="Cancel"
+          onclick={handleCancel}
+        ></lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+</template>

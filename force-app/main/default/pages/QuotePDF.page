@@ -1,0 +1,112 @@
+<apex:page controller="QuotePDFController" renderAs="pdf">
+  <apex:form >
+        <apex:pageBlock >
+            
+        <table style="font-family:Arial; padding-bottom:10px;">
+        <tr>
+            <td><apex:image id="Logo" value="{!$Resource.Logo}" width="60" height="60"/></td>
+            <td style="font:20pt; padding-left:10px; padding-right:350px;">NN</td>
+            <td style="font:15pt;">INVOICE</td>
+        </tr>
+    </table>
+            <h3><u>Details</u></h3>
+            <table style="border:0.5 solid fff;">
+                <tr>
+                    <td>Name: <span style="text-decoration: underline;"><apex:outputField value="{!qu.Name}"/></span></td>          
+                </tr>
+                <tr>          
+                    <td>Account: <span style="text-decoration: underline;"><apex:outputField value="{!qu.Account__c}"/></span></td>                 
+                </tr>
+               <tr>          
+                    <td>Contact Name: <span style="text-decoration: underline;"><apex:outputField value="{!qu.Contact__c}"/></span></td>                 
+                </tr>
+                
+            </table>
+            <table style="background-color:#90e0ef;">
+                <tr style="color:#fff; width 700px">
+                    <th style="padding-left:5px; padding-right:250px;">Invoice#</th>                                          
+                    <th style="padding-left:240px; padding-right:10px">Date: <span><apex:outputText value="{!DAY(TODAY())}-{!MONTH(TODAY())}-{!YEAR(TODAY())}"/></span></th>    
+                </tr>
+            </table>
+            
+         <table style="border:0.5px solid #fff; font-family:sans-serif;">
+            <tr>
+                <th style="padding-left:5px; padding-right:190px;">BILL TO</th>
+                <th style="padding-left:180px; padding-right:5px;">SHIP TO</th>    
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">Name: <span><apex:outputField value="{!ac.Name}"/></span></td>
+                <td style="padding-left:180px;">Name: <span><apex:outputField value="{!ac.Name}"/></span></td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">Street Address: <span><apex:outputField value="{!ac.BillingStreet}"/></span></td>        
+                <td style="padding-left:180px;">Street Address: <span><apex:outputField value="{!ac.ShippingStreet}"/></span></td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">City, State: <span><apex:outputField value="{!ac.BillingCity}"/></span>, <span><apex:outputField value="{!ac.BillingState}"/></span></td>        
+                <td style="padding-left:180px;">City, State: <span><apex:outputField value="{!ac.ShippingCity}"/></span>, <span><apex:outputField value="{!ac.ShippingState}"/></span></td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">Zip Code: <span><apex:outputField value="{!ac.BillingPostalCode}"/></span></td>
+                <td style="padding-left:180px;">Zip Code: <span><apex:outputField value="{!ac.ShippingPostalCode}"/></span></td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">Billing State: <span><apex:outputField value="{!ac.BillingState}"/></span></td>
+                <td style="padding-left:180px;">Shipping State: <span><apex:outputField value="{!ac.ShippingState}"/></span></td>
+            </tr>
+        </table>
+           <!--
+           <apex:pageBlockTable value="{!quLi}" var="op"> 
+               <apex:column > 
+                   <apex:pageBlockTable value="{!op.QuoteLineItem__c}" var="o" border="0.5"> 
+                       <apex:column width="400" value="{!o.Name}"/> 
+                       <apex:column width="200" value="{!o.Quotes__c}"/>
+                       <apex:column width="100" value="{!o.Actual_Price__c}"/> 
+                   </apex:pageBlockTable>
+               </apex:column>
+           </apex:pageBlockTable>  
+           -->
+     <table style=" font-family:sans-serif; text-align:center; width:350px">
+        <tr>
+            <td style="padding-left:5px; padding-right:20px;">Comments or Special Instructions:</td>
+        </tr>
+        <tr>
+            <td style="padding-left:5px; padding-bottom: 10px; padding-top: 10px;"><hr style="border: 1px solid #000;"/></td>
+        </tr>
+        <tr>
+            <td style="padding-left:5px;">Payment is due within ____ days.</td>
+        </tr>        
+    </table> 
+    
+    <table style="margin-left:425px; margin-top:-85px; z-index:1; font-family:sans-serif;">
+        <tr>
+            <td style="padding-right:10px; font-size:15px;">Quote Date</td>
+            <td style="text-align:right; border: 1px solid #ccc ">{!qu.Quote_Date__c}</td>
+        </tr>
+
+    </table> 
+    
+    
+    
+    <table style="padding-top:40px; z-index:1; color:#000; font-family:sans-serif; text-align:center; width:700px;">
+        <tr>
+            <td>Thank you for your business!</td>
+        </tr>
+    </table>
+    
+  <table>
+        <tr>
+            <td width="80%"></td>
+            <td width="20%" style="text-align: right;">
+             <table><tr>
+            <td style="padding-left: 10px;"><apex:image id="Logo1" value="{!$Resource.Logo}" width="60" height="60"/></td>
+            <td style="font:20pt; padding-left:10px;">NN</td>
+                 </tr>
+             </table>
+            </td>
+        </tr>
+    </table>
+     <footer><h6>*For Further Enquires Reach Out To Supplier Support Page</h6></footer>       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

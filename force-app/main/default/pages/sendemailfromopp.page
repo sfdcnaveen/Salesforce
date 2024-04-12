@@ -1,0 +1,37 @@
+<apex:page controller="sendemailfromopp" lightningStylesheets="true" showQuickActionVfHeader="false">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageMessages />
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton action="{!add}" value="Select Opportunities"/>
+              <apex:commandButton action="{!send}" value="Send email to selected records"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+          </apex:pageBlockButtons>
+          <apex:pageBlockTable value="{!oppwrap}" var="ow">
+              <apex:variable value="{!0}" var="indexvalue"/>
+              <apex:column >{!indexvalue}
+                    <apex:variable value="{!indexvalue+1}" var="indexvalue"/>
+              </apex:column>
+              <apex:column ><apex:inputCheckbox value="{!ow.checkbox}"/></apex:column>
+              <apex:column value="{!ow.addedopp.name}"/>
+              <apex:column value="{!ow.addedopp.Email__c}"/>
+              <apex:column value="{!ow.addedopp.Stage__c}"/> 
+              <apex:column value="{!ow.addedopp.Close_Date__c}"/>
+          </apex:pageBlockTable>
+          <apex:pageBlockTable value="{!opp}" var="o" id="oppid">
+              <apex:variable value="{!0}" var="index"/>
+              <apex:column >{!index}</apex:column>
+              <apex:column value="{!o.name}"/>
+              <apex:column value="{!o.Email__c}"/>
+              <apex:column value="{!o.Stage__c}"/>
+              <apex:column value="{!o.Close_Date__c}"/>
+              <apex:column >
+                  <apex:commandButton action="{!deleteit}" value="Delete" reRender="oppid" immediate="true">
+                      <apex:param name="new" value="{!index}" assignTo="{!indexno}"/>
+                  </apex:commandButton>
+                  <apex:variable value="{!index+1}" var="index"/>
+              </apex:column>
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,16 +1,26 @@
-<apex:page standardController="OpportunityLineItems__c" extensions="EmailOppLineItem" recordSetVar="oppt" setup="false" >
+<apex:page standardController="Opportunitiescustom__c" extensions="EmailOppLineItem" showQuickActionVfHeader="false" showHeader="false" >
   <apex:form >
     <apex:pageBlock >
-        <apex:pageBlockButtons >   
-            <apex:commandButton value="Send" action="{!sendemail}"/>
-            <apex:commandButton value="Cancel" action="{!cancelemail}"/>
+        <apex:pageBlockButtons location="top" >
+            <apex:commandButton value="Send" action="{!send}"/> 
         </apex:pageBlockButtons>
-        <apex:pageBlockSection title="Opportunity Email">
-            <apex:inputText size="40" label="To: " value="{!To}"/>
-            <apex:inputText size="40" label="Cc: " value="{!Cc}"/>>
-            <apex:inputText size="40" label="Subject: " value="{!Subject}"/>
-            <apex:inputTextarea rows="10" richText="true" value="{!Emailbody}"/>
-    	</apex:pageBlockSection>
-      </apex:pageBlock>
+                
+    <apex:pageBlockSection title="Opportunity Email / Notification">
+    </apex:pageBlockSection>
+    <apex:variable value="{!0}" var="rownumber"/> 
+    <apex:pageBlockTable value="{!oppList}" var="op" id="pgi"> 
+    <apex:column headerValue="Name"><apex:outputField value="{!op.Name}"/></apex:column>
+    <apex:column headerValue="Account Name"><apex:outputField value="{!op.Account_Name__r.Name}"/></apex:column>
+    <apex:column headerValue="Stage"><apex:outputField value="{!op.Stage__c}"/></apex:column>
+    <apex:column headerValue="Remove">
+                <apex:commandButton value="Remove" action="{!remove}" reRender="pgi" immediate="true">
+                <apex:param name="n1" value="{!rownumber}" assignTo="{!Tobedelete}"/>
+                </apex:commandButton>
+                <apex:variable var="rownumber" value="{!rownumber+1}"/>
+    </apex:column>
+    </apex:pageBlockTable>
+              
+    </apex:pageBlock>
     </apex:form>
+    
 </apex:page>
