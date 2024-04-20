@@ -1,4 +1,4 @@
-<apex:page controller="CreateInvoiceController" showHeader="false">
+<apex:page controller="CreateInvoiceController" showQuickActionVfHeader="false" sidebar="false">
   <apex:form >
   <apex:pageBlock >
           <apex:pageBlockButtons >
@@ -15,13 +15,18 @@
               </apex:pageBlockTable>
           </apex:pageBlockSection>
           <apex:pageBlockSection title="Invoice Line Items">
-          <apex:pageBlockTable value="{!lislip}" var="li" style="width:150%" id="pp">
-                <apex:column headerValue="Account Name"><apex:outputfield value="{!s.Account__r.Name}"/></apex:column>
+          <apex:pageBlockTable value="{!slpLi}" var="li" style="width:150%" id="pp">
                 <apex:column headerValue="Salesorder Name"><apex:outputfield value="{!li.Salesorder_Name__c}"/></apex:column>
-                <apex:column headerValue="Product Name"><apex:inputfield value="{!li.Product__c}"/></apex:column>
-                <apex:column headerValue="Quantity"><apex:inputfield value="{!li.Quantity__c}"/></apex:column>
-                <apex:column headerValue="Unit Price"><apex:inputfield value="{!li.Unit_Price__c}"/></apex:column>
-                <apex:column headerValue="Total Amount"><apex:outputfield value="{!li.Total_Price__c}"/></apex:column>
+                <apex:column headerValue="Product Name"><apex:outputfield value="{!li.Product__r.Product_Name__c}"/></apex:column>
+                <apex:column headerValue="Bal Quantity"><apex:inputField value="{!li.Bal_Quantity__c}"/></apex:column>
+                <apex:variable value="{!0}" var="myvar"/>
+                <apex:column >
+                    {!myvar}
+                    <apex:commandButton value="Remove" action="{!del}" reRender="pp" immediate="true">
+                        <apex:param name="ig" value="{!myvar}" assignTo="{!index}"/>
+                    </apex:commandButton>
+                <apex:variable value="{!myvar+1}" var="myvar"/>
+            </apex:column>
            </apex:pageBlockTable>
           </apex:pageBlockSection>
   </apex:pageBlock>

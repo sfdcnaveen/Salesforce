@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherLeadSourceValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+   NOT(ISPICKVAL( Lead_Source__c , &quot;Other&quot;)),
+   NOT(ISBLANK( Other_Lead_Source__c ))
+)</errorConditionFormula>
+    <errorDisplayField>Other_Lead_Source__c</errorDisplayField>
+    <errorMessage>Other Lead Source field can only be edited when Lead Source is &apos;Other&apos;.</errorMessage>
+</ValidationRule>

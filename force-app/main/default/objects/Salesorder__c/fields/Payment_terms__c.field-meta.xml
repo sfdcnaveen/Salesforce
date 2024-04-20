@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_terms__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment terms</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1. 50% advance payment to be made along with confirmed purchase order, 50% before despatch</fullName>
+                <default>false</default>
+                <label>1. 50% advance payment to be made along with confirmed purchase order, 50% before despatch</label>
+            </value>
+            <value>
+                <fullName>2. 100% Advance along with PO</fullName>
+                <default>false</default>
+                <label>2. 100% Advance along with PO</label>
+            </value>
+            <value>
+                <fullName>3. 100% against Delivery</fullName>
+                <default>false</default>
+                <label>3. 100% against Delivery</label>
+            </value>
+            <value>
+                <fullName>4. 10 Days Net</fullName>
+                <default>false</default>
+                <label>4. 10 Days Net</label>
+            </value>
+            <value>
+                <fullName>5. 30 Days Net</fullName>
+                <default>false</default>
+                <label>5. 30 Days Net</label>
+            </value>
+            <value>
+                <fullName>6. 45 Days Net</fullName>
+                <default>false</default>
+                <label>6. 45 Days Net</label>
+            </value>
+            <value>
+                <fullName>7. Others</fullName>
+                <default>false</default>
+                <label>7. Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

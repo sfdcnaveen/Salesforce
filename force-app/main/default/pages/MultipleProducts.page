@@ -5,13 +5,12 @@
                 <apex:commandButton value="Add Product" action="{!addProducts}"/>
                 <apex:commandButton value="Save" action="{!saveProducts}"/>
                 <apex:commandButton value="Cancel" action="{!cancel}"/>
-                <apex:pageBlockSection columns="3">
+                <apex:pageBlockSection columns="4">
                       <apex:repeat value="{!slp}" var="pr">
                           <apex:inputField value="{!pr.Product__c}" />
                           <apex:inputField value="{!pr.Actual_Price__c}"/>
                           <apex:inputField value="{!pr.Quantity__c}"/>
                           <apex:inputField value="{!pr.Unit_Price__c}"/>
-                          <apex:inputField value="{!pr.Total_Price__c}"/>
                       </apex:repeat>
                 </apex:pageBlockSection> 
       </apex:pageBlock>

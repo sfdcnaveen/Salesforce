@@ -1,3 +1,21 @@
 <template>
-    
+  <div>
+    <template for:each={slidesData} for:item="slide">
+      <div key={slide.image}>
+        <img src={slide.image} />
+      </div>
+    </template>
+    <a class="prev" onclick={backSlide}>&#10094;</a>
+    <a class="next" onclick={forwardSlide}>&#10095;</a>
+  </div>
+  <!-- <div class="slds-text-align_center slds-p-around_medium">
+    <template for:each={slidesData} for:item="slide">
+      <span
+        
+        data-id={slide.slideIndex}
+        key={slide.slideIndex}
+        onclick={currentSlide}
+      ></span>
+    </template>
+  </div> -->
 </template>

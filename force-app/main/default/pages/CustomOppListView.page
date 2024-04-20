@@ -1,0 +1,22 @@
+<apex:page controller="CustomOppListView">
+    <apex:form >
+        <apex:pageBlock title="Selected Records">
+            <apex:pageBlockTable value="{!custOppList}" var="record" id="pk">
+                <apex:column value="{!record.Name}" />
+                <apex:column value="{!record.Email__c}" />
+                <apex:column value="{!record.Account_Name__r.Name}" />
+                <apex:column value="{!record.Contact_Name__r.Name}" />
+                <apex:column value="{!record.Lead_Source__c}" />
+                <apex:column value="{!record.Stage__c}" />
+                <apex:column headerValue="Remove It">
+                    <apex:commandButton value="Remove" action="{!performdelete}" reRender="pk">
+                        <apex:param name="li" value="{!record.Id}" assignTo="{!listIndex}"/>
+                    </apex:commandButton>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Send Email" action="{!sendEmail}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
