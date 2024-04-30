@@ -1,60 +1,23 @@
-.container{
-    margin: auto;
-}
-.text-section{
-    position: absolute;
-    color: #f2f2f2;
-    font-size: 15px;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-    background: rgba(0,0,0, 0.7);
-}
-.prev, .next{
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-.next{
-    right:0;
-    border-radius: 3px 0 0 3px;
-}
-.prev:hover, .next:hover{
-    background: rgba(0,0,0, 0.8);
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
 }
 
-.slideNumbers{
-    font-size: 12px;
-    position: absolute;
-    padding: 8px 12px;
-    top: 0;
-    color: #f2f2f2;
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
 }
 
-.dot{
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: #bbb;
-    margin:0 2px;
-    display: inline-block;
-}
-.active, .dot:hover{
-    background-color: #717171;
+.carousel-item {
+  flex: 0 0 100%;
 }
 
-.fade{
-    animation-name:fade;
-    animation-duration: 1.5s;
+.carousel-item img {
+  width: 100%;
+  height: auto;
 }
-@keyframes fade{
-    from {opacity: .4}
-    to {opacity: 1}
+.carousel-nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }

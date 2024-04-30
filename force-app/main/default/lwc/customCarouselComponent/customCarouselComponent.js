@@ -1,74 +1,47 @@
-import { LightningElement } from "lwc";
-//import CAROUSEL_IMAGES from "@salesforce/resourceUrl/carousel";
-import CAROUSEL_IMAGE1 from "@salesforce/resourceUrl/carousel1";
-import CAROUSEL_IMAGE2 from "@salesforce/resourceUrl/carousel2";
-import CAROUSEL_IMAGE3 from "@salesforce/resourceUrl/carousel3";
+import { LightningElement, api, wire } from "lwc";
+import { getRecord, getFieldValue } from "lightning/uiRecordApi";
+import { NavigationMixin } from "lightning/navigation";
+import IMAGE1 from "@salesforce/schema/Images__c.image1__c";
+import IMAGE2 from "@salesforce/schema/Images__c.image2__c";
+import IMAGE3 from "@salesforce/schema/Images__c.image3__c";
 
-const CARD_VISIBLE_CLASSES = "slds-show";
-const CARD_HIDDEN_CLASSES = "slds-hide";
+const FIELDS = [IMAGE1, IMAGE2, IMAGE3];
 
-export default class CustomCarouselComponent extends LightningElement {
-  slideIndex = 0;
+export default class CustomCarouselComponent extends NavigationMixin(
+  LightningElement
+) {
+  @api recordId; // The ID of the Images__c record
+  images;
 
-  slides = [
-    {
-      image: CAROUSEL_IMAGE1
-    },
-    {
-      image: CAROUSEL_IMAGE2
-    },
-    {
-      image: CAROUSEL_IMAGE3
+  @wire(getRecord, { recordId: "$recordId", fields: FIELDS })
+  wiredImages({ error, data }) {
+    if (data) {
+      //this.images = data;
+      this.images = getFieldValue(data, FIELDS);
+      console.log("data", JSON.stringify(data));
+    } else if (error) {
+      console.error("Error loading record data:", error);
+      console.log("error", JSON.stringify(error));
     }
-  ];
-
-  set slidesData(data) {
-    this.slides = data.map((item, index) => {
-      return index === 0
-        ? {
-            ...item,
-            slideIndex: index + 1,
-            cardClasses: CARD_VISIBLE_CLASSES
-          }
-        : {
-            ...item,
-            slideIndex: index + 1,
-            cardClasses: CARD_HIDDEN_CLASSES
-          };
-    });
   }
 
-  // currentSlide(event) {
-  //   let slideIndex = Number(event.target.dataset.id);
-  //   this.slideSelectionHandler(slideIndex);
-  // }
-  // backSlide() {
-  //   let slideIndex = this.slideIndex - 1;
-  //   this.slideSelectionHandler(slideIndex);
-  // }
-  // forwardSlide() {
-  //   let slideIndex = this.slideIndex + 1;
-  //   this.slideSelectionHandler(slideIndex);
-  // }
+  get imageUrls() {
+    return [
+      this.images?.data?.IMAGE1?.value,
+      this.images?.data?.IMAGE2?.value,
+      this.images?.data?.IMAGE3?.value
+    ];
+  }
 
-  // slideSelectionHandler(id) {
-  //   if (id > this.slides.length) {
-  //     this.slideIndex = 1;
-  //   } else if (id < 1) {
-  //     this.slideIndex = this.slides.length;
-  //   } else {
-  //     this.slideIndex = id;
-  //   }
-  //   this.slides = this.slides.map((item) => {
-  //     return this.slideIndex === item.slideIndex
-  //       ? {
-  //           ...item,
-  //           cardClasses: CARD_VISIBLE_CLASSES
-  //         }
-  //       : {
-  //           ...item,
-  //           cardClasses: CARD_HIDDEN_CLASSES
-  //         };
-  //   });
-  // }
+  goToPreviousSlide() {
+    const carousel = this.template.querySelector(".carousel");
+    const itemWidth = carousel.querySelector(".carousel-item").clientWidth;
+    carousel.style.transform = `translateX(${itemWidth}px)`;
+  }
+
+  goToNextSlide() {
+    const carousel = this.template.querySelector(".carousel");
+    const itemWidth = carousel.querySelector(".carousel-item").clientWidth;
+    carousel.style.transform = `translateX(-${itemWidth}px)`;
+  }
 }

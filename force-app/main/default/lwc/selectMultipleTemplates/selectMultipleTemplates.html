@@ -1,0 +1,22 @@
+<template>
+  <lightning-card title="Multi Select Combobox">
+    <div class="slds-var-m-left_large" onmouseleave={mousehandler}>
+      <c-multi-select-combobox
+        label="Templates"
+        name="Templates"
+        options={options}
+        onchange={handleChange}
+      >
+      </c-multi-select-combobox>
+
+      <div>
+        <p>
+          <lightning-input-rich-text
+            value={value}
+            class="slds-border_top"
+          ></lightning-input-rich-text>
+        </p>
+      </div>
+    </div>
+  </lightning-card>
+</template>
