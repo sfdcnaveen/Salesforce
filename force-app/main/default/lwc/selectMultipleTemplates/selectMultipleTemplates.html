@@ -1,22 +1,41 @@
 <template>
-  <lightning-card title="Multi Select Combobox">
-    <div class="slds-var-m-left_large" onmouseleave={mousehandler}>
-      <c-multi-select-combobox
-        label="Templates"
-        name="Templates"
-        options={options}
-        onchange={handleChange}
-      >
-      </c-multi-select-combobox>
-
-      <div>
-        <p>
-          <lightning-input-rich-text
-            value={value}
-            class="slds-border_top"
-          ></lightning-input-rich-text>
-        </p>
-      </div>
-    </div>
-  </lightning-card>
+  <div class="c-container">
+    <lightning-card>
+      <lightning-layout horizontal-align="space">
+        <lightning-layout-item
+          size="6"
+          flexibility="auto"
+          padding="horizontal-medium"
+        >
+          <lightning-card title="Multi Select Combobox">
+            <div class="slds-var-m-left_large" onmouseleave={mousehandler}>
+              <c-multi-select-combobox
+                label="Templates"
+                name="Templates"
+                options={options}
+                onchange={handleChange}
+              >
+              </c-multi-select-combobox>
+            </div>
+          </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item
+          size="6"
+          flexibility="auto"
+          padding="horizontal-medium"
+        >
+          <lightning-card title="Rich Text Field with Templates body">
+            <div>
+              <p>
+                <lightning-input-rich-text
+                  value={value}
+                  class="slds-border_top"
+                ></lightning-input-rich-text>
+              </p>
+            </div>
+          </lightning-card>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-card>
+  </div>
 </template>

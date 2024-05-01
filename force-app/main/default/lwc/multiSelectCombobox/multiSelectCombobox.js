@@ -1,4 +1,4 @@
-import { api, LightningElement, track } from 'lwc';
+import { api, LightningElement, track } from "lwc";
 
 /**
  * Combobox with different configuration options that also supports multi select.
@@ -22,7 +22,7 @@ export default class MultiSelectCombobox extends LightningElement {
    * @type {string}
    * @default ''
    */
-  @api label = '';
+  @api label = "";
 
   /**
    * Specifies the name of the combobox.
@@ -52,7 +52,7 @@ export default class MultiSelectCombobox extends LightningElement {
    * @type {string}
    * @default 'Select an Option'
    */
-  @api placeholder = 'Select an Option';
+  @api placeholder = "Select an Option";
 
   /**
    * If present, the combobox is read-only. A read-only combobox is also disabled.
@@ -98,14 +98,16 @@ export default class MultiSelectCombobox extends LightningElement {
 
   renderedCallback() {
     if (!this.isInitialized) {
-      this.template.querySelector('.multi-select-combobox__input').addEventListener('click', (event) => {
-        this.handleClick(event.target);
+      this.template
+        .querySelector(".multi-select-combobox__input")
+        .addEventListener("click", (event) => {
+          this.handleClick(event.target);
+          event.stopPropagation();
+        });
+      this.template.addEventListener("click", (event) => {
         event.stopPropagation();
       });
-      this.template.addEventListener('click', (event) => {
-        event.stopPropagation();
-      });
-      document.addEventListener('click', () => {
+      document.addEventListener("click", () => {
         this.close();
       });
       this.isInitialized = true;
@@ -124,17 +126,22 @@ export default class MultiSelectCombobox extends LightningElement {
 
   handleClick() {
     // initialize picklist options on first click to make them editable
-    if (this.isLoaded === false || this.currentOptions?.length !== this.options?.length) {
+    if (
+      this.isLoaded === false ||
+      this.currentOptions?.length !== this.options?.length
+    ) {
       this.currentOptions = JSON.parse(JSON.stringify(this.options));
       this.isLoaded = true;
     }
 
-    if (this.template.querySelector('.slds-is-open')) {
+    if (this.template.querySelector(".slds-is-open")) {
       this.close();
     } else {
-      this.template.querySelectorAll('.multi-select-combobox__dropdown').forEach((node) => {
-        node.classList.add('slds-is-open');
-      });
+      this.template
+        .querySelectorAll(".multi-select-combobox__dropdown")
+        .forEach((node) => {
+          node.classList.add("slds-is-open");
+        });
     }
   }
 
@@ -150,7 +157,11 @@ export default class MultiSelectCombobox extends LightningElement {
       .forEach((item) => (item.selected = event.detail.selected));
     this.setSelection();
     const selection = this.getSelectedItems();
-    this.dispatchEvent(new CustomEvent('change', { detail: this.singleSelect ? selection[0] : selection }));
+    this.dispatchEvent(
+      new CustomEvent("change", {
+        detail: this.singleSelect ? selection[0] : selection
+      })
+    );
 
     // for single select picklist close dropdown after selection is made
     if (this.singleSelect) {
@@ -159,15 +170,17 @@ export default class MultiSelectCombobox extends LightningElement {
   }
 
   close() {
-    this.template.querySelectorAll('.multi-select-combobox__dropdown').forEach((node) => {
-      node.classList.remove('slds-is-open');
-    });
-    this.dispatchEvent(new CustomEvent('close'));
+    this.template
+      .querySelectorAll(".multi-select-combobox__dropdown")
+      .forEach((node) => {
+        node.classList.remove("slds-is-open");
+      });
+    this.dispatchEvent(new CustomEvent("close"));
   }
 
   setSelection() {
     const selectedItems = this.getSelectedItems();
-    let selection = '';
+    let selection = "";
     if (selectedItems.length < 1) {
       selection = this.placeholder;
       this.selectedOptions = [];
@@ -176,7 +189,7 @@ export default class MultiSelectCombobox extends LightningElement {
 
       this.selectedOptions = this.getSelectedItems();
     } else {
-      selection = selectedItems.map((selected) => selected.label).join(', ');
+      selection = selectedItems.map((selected) => selected.label).join(", ");
       this.selectedOptions = this.getSelectedItems();
     }
     this.selectedItems = selection;
