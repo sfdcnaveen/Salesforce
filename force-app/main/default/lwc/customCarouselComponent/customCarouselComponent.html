@@ -1,3 +1,4 @@
+<!-- sldsValidatorIgnore -->
 <template>
   <div class="carousel-container">
     <div class="carousel">
@@ -12,9 +13,13 @@
         </div>
       </template>
     </div>
-    <div class="carousel-nav">
-      <button class="prev-button" onclick={goToPreviousSlide}>Previous</button>
-      <button class="next-button" onclick={goToNextSlide}>Next</button>
+    <div aria-label="carousel-nav" class="carousel-nav">
+      <button aria-label="prev" class="prev-button" onclick={goToPreviousSlide}>
+        Previous
+      </button>
+      <button aria-label="next" class="next-button" onclick={goToNextSlide}>
+        Next
+      </button>
     </div>
   </div>
 </template>

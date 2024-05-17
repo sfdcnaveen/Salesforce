@@ -1,0 +1,87 @@
+<template>
+  <div class="container slds-align_absolute-center">
+    <lightning-accordion>
+      <lightning-accordion-section
+        name="A"
+        label="Medical Details"
+        class="slds-align_absolute-center"
+      >
+        <p>
+          All the fields in this section are read-only. To update your medical
+          details [exact phrasing TBD]
+        </p>
+        <h1>{formattedStartDate} - {displayValue}</h1>
+        <lightning-combobox
+          name="Description"
+          label="Description"
+          value={value}
+          placeholder="Select Description "
+          options={options}
+          onchange={handleChange}
+        ></lightning-combobox>
+        <template if:true={showTextarea}>
+          <lightning-textarea
+            class="textarea"
+            name="input1"
+            label="Description (other)"
+            value={otherDescription}
+            onchange={handleOtherDescriptionChange}
+          ></lightning-textarea>
+        </template>
+        <!-- <lightning-textarea
+          class="textarea"
+          name="input1"
+          label="Description (other)"
+          value={selectedDate}
+          onchange={handleDateChange}
+        ></lightning-textarea> -->
+        <lightning-input
+          type="date"
+          label="Start Date"
+          class="inputfont"
+          value={startDate}
+          onchange={handleStartDateChange}
+        ></lightning-input>
+        <lightning-input
+          type="date"
+          label="End Date"
+          class="inputfont"
+          value={endDate}
+          onchange={handleEndDateChange}
+        ></lightning-input>
+        <h1>{formattedStartDate2} - {displayValue2}</h1>
+        <lightning-combobox
+          name="Description"
+          label="Description"
+          value={value2}
+          placeholder="Select Description "
+          options={options}
+          onchange={handleChange2}
+        ></lightning-combobox>
+        <template if:true={showTextarea}>
+          <lightning-textarea
+            class="textarea"
+            name="input1"
+            label="Description (other)"
+            value={otherDescription2}
+            onchange={handleOtherDescriptionChange2}
+          ></lightning-textarea>
+        </template>
+        <lightning-input
+          type="date"
+          label="Start Date"
+          class="inputfont"
+          value={startDate2}
+          onchange={handleStartDate2Change}
+        ></lightning-input>
+        <lightning-input
+          type="date"
+          label="End Date"
+          class="inputfont"
+          value={endDate2}
+          onchange={handleEndDate2Change}
+        ></lightning-input>
+      </lightning-accordion-section>
+    </lightning-accordion>
+  </div>
+</template>

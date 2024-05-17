@@ -29,6 +29,7 @@ export default class SelectMultipleTemplates extends LightningElement {
     this.selectedOptions = event.detail;
     this.updateRichTextField();
   }
+
   updateRichTextField() {
     let selectedBodies = [];
     for (let i = 0; i < this.selectedOptions.length; i++) {

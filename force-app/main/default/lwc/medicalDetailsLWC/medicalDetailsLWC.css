@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Ubuntu Regular";
+  src: url("/resource/Ubuntu-B.ttf") format("truetype");
+}
+
+.container {
+  background-color: #e1f3e27c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 200px;
+  padding-right: 200px;
+  border-top: 4px solid green;
+  border-bottom: 4px solid green;
+}
+
+.container2 {
+  font-family: "Ubuntu Regular" sans-serif;
+}
+
+.card {
+  flex-shrink: 0;
+  margin-right: 10px;
+  font-size: xx-large;
+}
+
+.accordion {
+  flex-grow: 1;
+}
+
+h1 {
+  color: green;
+  font-size: 25px;
+  margin: 10px;
+  font-family: "Ubuntu Regular" sans-serif;
+}
+
+p {
+  font-family: "Ubuntu Regular" sans-serif;
+}
+
+.textarea {
+  font-family: "Ubuntu Regular" sans-serif;
+}
+
+.inputfont {
+  font-family: "Ubuntu Regular" sans-serif;
+}
