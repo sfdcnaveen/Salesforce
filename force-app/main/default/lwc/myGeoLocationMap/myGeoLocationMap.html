@@ -1,0 +1,35 @@
+<!-- myGeoLocationMap.html -->
+<template>
+  <lightning-card title="Geo-Location Map">
+    <div class="slds-p-around_medium">
+      <div id="map"></div>
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input
+            label="Start Location"
+            type="text"
+            value={startLocation}
+            onchange={handleStartLocationChange}
+          ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input
+            label="End Location"
+            type="text"
+            value={endLocation}
+            onchange={handleEndLocationChange}
+          ></lightning-input>
+        </div>
+      </div>
+      <div class="slds-grid slds-wrap slds-p-top_medium">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-button
+            label="Save"
+            variant="brand"
+            onclick={handleSaveLocation}
+          ></lightning-button>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
