@@ -1,0 +1,36 @@
+<template>
+  <lightning-card title="Get Current Location in LWC">
+    <lightning-button
+      variant="brand"
+      label="Start Location"
+      onclick={handleClick}
+    >
+    </lightning-button>
+    <lightning-button
+      variant="brand"
+      label="End Location"
+      onclick={handleClick}
+    >
+    </lightning-button>
+    <div class="slds-var-p-around_small">
+      <lightning-button
+        variant="brand"
+        label="Get Current Location"
+        onclick={handleClick}
+      >
+      </lightning-button>
+      <div>Latitude : {lat} Longitude : {lon}</div>
+      <br /><br />
+      <lightning-map
+        map-markers={lstMarkers}
+        zoom-level={zoomlevel}
+      ></lightning-map>
+      <lightning-input
+        type="date"
+        label="Select Date"
+        value={selectedDate}
+        onchange={handleDateChange}
+      ></lightning-input>
+    </div>
+  </lightning-card>
+</template>

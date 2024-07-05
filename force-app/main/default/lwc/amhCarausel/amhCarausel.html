@@ -1,0 +1,36 @@
+<template>
+    <div class="carousel-container">
+        <lightning-layout>
+            <lightning-layout-item size="4" padding="around-small" class="carousel-item img">
+                <div style="position: relative;">
+                    <img class="imagecss" src={currentImageUrl} alt="Image" />
+                    <div class="overlay">
+                        <div class="title">{currentImageTitle}</div>
+                        <div class="subtitle">{currentImageCompany}</div>
+                        <div class="description">{currentImageAddress}</div>
+                        <div>
+                            <button class="button" data-url={currentImageLink} onclick={handleSlideButton}>{CurrentSlideButtonLabel}</button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+    <div style="text-align: center;">
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 20px;height: 20px;margin-right: 20px;">
+                <button onclick={toggleAutoSwipe}>
+                    {playPauseLabel}
+                </button>
+            </div>
+            <template for:each={imageUrls} for:item="item" for:index="currentindex">
+                <div key={item.UniqueId}>
+                    <button data-id={item.UniqueId} class="round-button" onclick={handleButtonClick} data-index={currentindex}></button>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    
+</template>

@@ -1,0 +1,26 @@
+<template>
+  <lightning-card title="Geo-Location">
+    <lightning-input-location
+      label="Default coordinates"
+      latitude={latitudes}
+      longitude={longitudes}
+    ></lightning-input-location>
+    <lightning-map
+      map-markers={mapMarkers}
+      zoom-level={zoomLevel}
+    ></lightning-map>
+    <lightning-button
+      label="Start Location"
+      onclick={handelStart}
+    ></lightning-button>
+    <lightning-button
+      label="End Location"
+      onclick={handleEnd}
+    ></lightning-button>
+    <lightning-input
+      label="Title"
+      placeholder="Enter Location Title"
+      onchange={handleTitle}
+    ></lightning-input>
+  </lightning-card>
+</template>

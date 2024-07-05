@@ -1,0 +1,246 @@
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.carousel-item { 
+  width: 100%;
+  text-align: center;
+  padding:0.5%;
+  transition: flex 0.5s ease; 
+ 
+}
+
+.carousel-item img {
+  border-radius: 5px;
+  padding: auto;
+  width: 1440px;
+  height: 300px;
+}
+
+.carousel-item-text {
+  background-color: #f9f9f9;
+  width: 700px;
+  height: auto;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.round-button{
+  gap: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid #939393;
+  background-color:white;
+}
+
+.onChangeColorClick{
+  background-color: #D62311;  
+
+}
+.clicked {
+    background-color: #D62311;
+} 
+
+.title {
+  /*width: 277px;;*/
+  height: 33px;
+    color:#403C3C;
+    font-family: 'Mecherle Sans';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+}
+
+.subtitle {
+  width: 680px;
+  height: 62px; 
+  top: 183px;
+  Left: 501px; 
+  color:#383535;
+  font-family: 'Mecherle Sans';
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 33px;
+  text-align: left;
+}
+.description{
+    font-family: 'Mecherle Sans';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+
+  }
+  .indicator{
+    justify-content: center; 
+    display:flex;
+    padding-top: 5px;
+}
+
+.button{
+width: Hug (113px)px;
+height: 32px ;
+top: 272px;
+left: 500px;
+padding: 1px 16px 1px 16px;
+gap: 10px;
+opacity: 0px;
+background-color: #D62311;
+color: white; /* Text color */
+border: none;
+text-align: left;
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: -18px;
+  right: -80px;
+  transform: translate(-25%, -50%);
+  padding: 10px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 1280px) {
+  .overlay {
+    position: absolute;
+    bottom: -20px;
+    right: -100px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .overlay {
+    position: absolute;
+    bottom: -20px;
+    right: -100px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+
+@media only screen and (max-width: 1164px) {
+  .overlay {
+    position: absolute;
+    bottom: -20px;
+    right: -100px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .overlay {
+    position: absolute;
+    bottom: -20px;
+    right: -190px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+ /* .imagecss{
+    content-visibility: hidden;
+  } */
+}
+
+
+@media only screen and (max-width: 853.33px) {
+  .overlay {
+    position: absolute;
+    bottom: -23px;
+    right: -310px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+ /* .imagecss{ 
+    content-visibility: hidden;
+  } */
+}
+
+@media only screen and (max-width: 731.43px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -297px;
+    transform: translate(-25%, -50%);
+    padding-left: 514px;
+  }
+  .imagecss{
+    content-visibility: hidden;
+  } 
+
+}
+
+
+@media only screen and (max-width: 640px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -295px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+ /* .imagecss{
+    content-visibility: hidden;
+  } */
+}
+
+
+@media only screen and (max-width: 512px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -375px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+} 
+
+@media only screen and (max-width: 426.67px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -459px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -606px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: -564px;
+    transform: translate(-25%, -50%);
+    padding: 10px;
+    text-align: left;
+  }
+}
