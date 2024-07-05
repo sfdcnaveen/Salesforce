@@ -1,0 +1,94 @@
+{
+	"errorText": "Something went wrong.",
+	"mockError": {
+		"body": {
+			"message": "An internal server error has occurred"
+		},
+		"ok": false,
+		"status": 400,
+		"statusText": "Bad Request"
+	},
+	"data": {
+		"apiName": "User",
+		"childRelationships": {},
+		"fields": {
+			"Name": {
+				"displayValue": null,
+				"value": "User"
+			},
+			"Email": {
+				"displayValue": null,
+				"value": "someuser@salesforce.com"
+			},
+			"State_Agent_Code__c": {
+				"displayValue": null,
+				"value": "14-111"
+			},
+			"State_Agent_Code_List__c": {
+				"displayValue": null,
+				"value": "14-111,14-112,14-113,14-114"
+			},
+			"Associate_ID__c": {
+				"displayValue": null,
+				"value": "H7LS68P2CAM"
+			},
+			"Agent_Tier__c": {
+				"displayValue": null,
+				"value": "Tier 3"
+			}
+		},
+		"id": "005xx000001X8BdAAK",
+		"lastModifiedById": "005xx000001X8BdAAK",
+		"lastModifiedDate": "2022-02-09T08:46:27.000Z",
+		"recordTypeId": null,
+		"recordTypeInfo": null,
+		"systemModstamp": "2022-02-09T08:46:27.000Z"
+	},
+	"data1": [{
+		"Image_Source__c":"Image_Source__c1",
+		"Title__c":"Title__c1",
+		"SubTitle__c":"SubTitle__c1",
+		"Description__c":"Description__c1",
+		"Button__c":"Button__c1",
+		"Name":"Name1",
+		"Link_Resource__c":"Link_Resource__c1"
+	},{
+		"Image_Source__c":"Image_Source__c2",
+		"Title__c":"Title__c2",
+		"SubTitle__c":"SubTitle__c2",
+		"Description__c":"Description__c2",
+		"Button__c":"Button__c2",
+		"Name":"Name2",
+		"Link_Resource__c":"Link_Resource__c2"
+	},{
+		"Image_Source__c":"Image_Source__c3",
+		"Title__c":"Title__c3",
+		"SubTitle__c":"SubTitle__c3",
+		"Description__c":"Description__c3",
+		"Button__c":"Button__c3",
+		"Name":"Name3",
+		"Link_Resource__c":"Link_Resource__c3"
+	}],
+	"errorData": [{
+		"Image_Source__c":"Image_Source__c1",
+		"Title__c":"Title__c1",
+		"SubTitle__c":"SubTitle__c1",
+		"Description__c":"Description__c1",
+		"Button__c":"Button__c1",
+		"Link_Resource__c":"Link_Resource__c1"
+	},{
+		"Image_Source__c":"Image_Source__c2",
+		"Title__c":"Title__c2",
+		"SubTitle__c":"SubTitle__c2",
+		"Description__c":"Description__c2",
+		"Button__c":"Button__c2",
+		"Link_Resource__c":"Link_Resource__c2"
+	},{
+		"Image_Source__c":"Image_Source__c3",
+		"Title__c":"Title__c3",
+		"SubTitle__c":"SubTitle__c3",
+		"Description__c":"Description__c3",
+		"Button__c":"Button__c3",
+		"Link_Resource__c":"Link_Resource__c3"
+	}]
+}
