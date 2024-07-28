@@ -9,36 +9,36 @@
                 <lightning-input-field
                   field-name="Name"
                   value={accountName}
-                  onchange={handleaccountName}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
                 <lightning-input-field
                   field-name="Phone"
                   value={accphone}
-                  onchange={handleaccphone}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
                   field-name="Industry"
                   value={accind}
-                  onchange={handleaccind}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
                 <lightning-input-field
                   field-name="Website"
                   value={accweb}
-                  onchange={handleaccweb}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
                   field-name="Rating"
                   value={accrating}
-                  onchange={handleaccrating}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
                 <lightning-input-field
                   field-name="Description"
                   value={accrdesc}
-                  onchange={handleaccrdesc}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
             </div>
@@ -51,31 +51,31 @@
                 <lightning-input-field
                   field-name="FirstName"
                   value={firstName}
-                  onchange={handlefirstName}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
                 <lightning-input-field
                   field-name="LastName"
                   value={lastName}
-                  onchange={handlelastName}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
                   field-name="Title"
                   value={contitle}
-                  onchange={handlecontitle}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
                 <lightning-input-field
                   field-name="Phone"
                   value={conPhone}
-                  onchange={handleconPhone}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
                   field-name="Email"
                   value={conemail}
-                  onchange={handleconemail}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
             </div>
@@ -84,25 +84,19 @@
         <lightning-accordion-section label="Opportunity">
           <lightning-record-edit-form object-api-name="Opportunity">
             <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium"></div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
-                  field-name="Name"
-                  value={oppname}
-                  onchange={handleoppoppname}
-                ></lightning-input-field>
-              </div>
-              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
-                <lightning-input-field
-                  field-name="StageName"
+                  field-name="Stage__c"
                   value={oppstagename}
-                  onchange={handleoppstagename}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                 <lightning-input-field
-                  field-name="CloseDate"
+                  field-name="Close_Date__c"
                   value={oppclosedate}
-                  onchange={handleoppclosedate}
+                  onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
             </div>

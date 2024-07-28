@@ -48,11 +48,10 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
       })
       .then((contactId) => {
         return createOpportunity({
-          Name: this.oppname,
-          StageName: this.oppstagename,
-          CloseDate: this.oppclosedate,
-          ContactId: contactId,
-          AccountId: this.newAccountId
+          Stage__c: this.oppstagename,
+          Close_Date__c: this.oppclosedate,
+          Contact_Name__c: contactId,
+          Account_Name__c: this.newAccountId
         });
       })
       .then(() => {
