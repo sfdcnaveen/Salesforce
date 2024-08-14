@@ -20,6 +20,7 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
   @track oppname;
   @track oppstagename;
   @track oppclosedate;
+  @track oppemail;
 
   handleFieldChange(event) {
     const fieldName = event.target.name;
@@ -48,10 +49,11 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
       })
       .then((contactId) => {
         return createOpportunity({
+          Account_Name__c: this.newAccountId,
           Stage__c: this.oppstagename,
           Close_Date__c: this.oppclosedate,
           Contact_Name__c: contactId,
-          Account_Name__c: this.newAccountId
+          Email__c: this.oppemail
         });
       })
       .then(() => {

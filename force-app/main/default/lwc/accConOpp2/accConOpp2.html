@@ -1,0 +1,79 @@
+<template>
+  <lightning-card
+    title="Create Account, Contact, and Opportunity"
+    icon-name="standard:account"
+  >
+    <div class="slds-p-around_medium">
+      <lightning-layout multiple-rows="true">
+        <lightning-layout-item padding="around-small" size="4">
+          <lightning-input
+            label="Account Name"
+            data-id="accountName"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            label="Account Phone"
+            data-id="accountPhone"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            label="Account Website"
+            data-id="accountWebsite"
+            onchange={handleInputChange}
+          ></lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="4">
+          <lightning-input
+            label="Contact First Name"
+            data-id="contactFirstName"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            label="Contact Last Name"
+            data-id="contactLastName"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            label="Contact Email"
+            data-id="contactEmail"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            label="Contact Phone"
+            data-id="contactPhone"
+            onchange={handleInputChange}
+          ></lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="4">
+          <lightning-input
+            label="Opportunity Name"
+            data-id="opportunityName"
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-combobox
+            label="Opportunity Stage"
+            data-id="opportunityStage"
+            options={stageOptions}
+            onchange={handleInputChange}
+          ></lightning-combobox>
+          <lightning-input
+            label="Opportunity Close Date"
+            data-id="opportunityCloseDate"
+            type="date"
+            onchange={handleInputChange}
+          ></lightning-input>
+        </lightning-layout-item>
+      </lightning-layout>
+
+      <div class="slds-m-top_medium">
+        <lightning-button
+          variant="brand"
+          label="Save"
+          onclick={handleSave}
+        ></lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+</template>

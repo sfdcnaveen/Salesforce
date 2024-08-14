@@ -82,7 +82,7 @@
           </lightning-record-edit-form>
         </lightning-accordion-section>
         <lightning-accordion-section label="Opportunity">
-          <lightning-record-edit-form object-api-name="Opportunity">
+          <lightning-record-edit-form object-api-name="Opportunitiescustom__c">
             <div class="slds-grid slds-wrap">
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium"></div>
               <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
@@ -96,6 +96,13 @@
                 <lightning-input-field
                   field-name="Close_Date__c"
                   value={oppclosedate}
+                  onchange={handleFieldChange}
+                ></lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                <lightning-input-field
+                  field-name="Email"
+                  value={oppEmail}
                   onchange={handleFieldChange}
                 ></lightning-input-field>
               </div>
