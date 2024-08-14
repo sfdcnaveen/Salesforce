@@ -5,6 +5,8 @@ import createOpportunity from "@salesforce/apex/AccConOppAuraEnabled.createOppor
 import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 export default class AccConOpp extends NavigationMixin(LightningElement) {
+  // To create Acc, Con, Opp from one component
+
   newAccountId;
   @track accountName;
   @track accphone;
@@ -20,6 +22,7 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
   @track oppname;
   @track oppstagename;
   @track oppclosedate;
+  @track oppemail;
 
   handleFieldChange(event) {
     const fieldName = event.target.name;
@@ -48,11 +51,11 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
       })
       .then((contactId) => {
         return createOpportunity({
-          Name: this.oppname,
-          StageName: this.oppstagename,
-          CloseDate: this.oppclosedate,
-          ContactId: contactId,
-          AccountId: this.newAccountId
+          Account_Name__c: this.newAccountId,
+          Stage__c: this.oppstagename,
+          Close_Date__c: this.oppclosedate,
+          Contact_Name__c: contactId,
+          Email__c: this.oppemail
         });
       })
       .then(() => {
