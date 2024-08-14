@@ -5,6 +5,8 @@ import createOpportunity from "@salesforce/apex/AccConOppAuraEnabled.createOppor
 import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 export default class AccConOpp extends NavigationMixin(LightningElement) {
+  // To create Acc, Con, Opp from one component
+
   newAccountId;
   @track accountName;
   @track accphone;
