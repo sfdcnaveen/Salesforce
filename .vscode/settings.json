@@ -4,5 +4,9 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "salesforce.einsteinForDevelopers.enableAutocompletions": false
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[apex]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "notebook.defaultFormatter": "esbenp.prettier-vscode"
 }
