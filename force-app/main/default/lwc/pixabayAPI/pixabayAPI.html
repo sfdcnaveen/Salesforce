@@ -1,0 +1,17 @@
+<template>
+  <lightning-card title="Pixabay API">
+    <div class="slds-var-m-around-medium">
+      <lightning-input
+        onchange={handleonchange}
+        label="Search text"
+      ></lightning-input>
+      <br />
+      <lightning-button
+        label="Get Image"
+        onclick={buttonClick}
+      ></lightning-button>
+      <br />
+      <img src={imageURL} />
+    </div>
+  </lightning-card>
+</template>
