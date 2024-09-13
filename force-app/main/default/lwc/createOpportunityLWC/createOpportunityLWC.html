@@ -1,0 +1,44 @@
+<template>
+  <lightning-card title="Create Opportunity">
+    <!-- Record form to create Opportunity -->
+    <lightning-record-form
+      object-api-name="Opportunity"
+      fields={fields}
+      onsuccess={handleSuccess}
+      onerror={handleError}
+      mode="edit"
+    >
+    </lightning-record-form>
+
+    <!-- Custom form to create Opportunity using createRecord
+    <lightning-input
+      label="Opportunity Name"
+      value={opportunityName}
+      onchange={handleOpportunityNameChange}
+      required
+    ></lightning-input>
+
+    <lightning-input
+      label="Close Date"
+      type="date"
+      value={closeDate}
+      onchange={handleCloseDateChange}
+      required
+    ></lightning-input>
+
+    <lightning-input
+      label="Stage Name"
+      value={stageName}
+      onchange={handleStageNameChange}
+      required
+    ></lightning-input>
+
+    <lightning-button
+      label="Create Opportunity"
+      onclick={createOpportunity}
+      variant="brand"
+    ></lightning-button>
+    -->
+    <!-- Toast Notification -->
+  </lightning-card>
+</template>
