@@ -1,0 +1,87 @@
+<template>
+  <lightning-card title="Create Related Records" icon-name="standard:record">
+    <div class="slds-m-around_medium">
+      <h2 class="slds-text-heading_medium slds-m-bottom_small">
+        Account Information
+      </h2>
+      <lightning-input
+        label="Account Name"
+        name="account_Name"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+      <lightning-combobox
+        label="Industry"
+        name="account_Industry"
+        options={industryOptions}
+        required
+        onchange={handleInputChange}
+      ></lightning-combobox>
+      <lightning-input
+        label="Phone"
+        name="account_Phone"
+        type="tel"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+
+      <h2
+        class="slds-text-heading_medium slds-m-bottom_small slds-m-top_medium"
+      >
+        Contact Information
+      </h2>
+      <lightning-input
+        label="First Name"
+        name="contact_FirstName"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+      <lightning-input
+        label="Last Name"
+        name="contact_LastName"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+      <lightning-input
+        label="Email"
+        name="contact_Email"
+        type="email"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+
+      <h2
+        class="slds-text-heading_medium slds-m-bottom_small slds-m-top_medium"
+      >
+        Opportunity Information
+      </h2>
+      <lightning-input
+        label="Opportunity Name"
+        name="opportunity_Name"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+      <lightning-combobox
+        label="Stage"
+        name="opportunity_StageName"
+        options={stageOptions}
+        required
+        onchange={handleInputChange}
+      ></lightning-combobox>
+      <lightning-input
+        label="Close Date"
+        name="opportunity_CloseDate"
+        type="date"
+        required
+        onchange={handleInputChange}
+      ></lightning-input>
+
+      <lightning-button
+        label="Create Records"
+        variant="brand"
+        onclick={handleSubmit}
+        class="slds-m-top_medium"
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>

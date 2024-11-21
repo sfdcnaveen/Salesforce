@@ -4,6 +4,7 @@ import createContact from "@salesforce/apex/AccConOppAuraEnabled.createContact";
 import createOpportunity from "@salesforce/apex/AccConOppAuraEnabled.createOpportunity";
 import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
+
 export default class AccConOpp extends NavigationMixin(LightningElement) {
   // To create Acc, Con, Opp from one component
 
@@ -24,39 +25,35 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
   @track oppclosedate;
   @track oppemail;
 
+  @track accountData = {};
+  @track contactData = {};
+  @track opportunityData = {};
+
   handleFieldChange(event) {
     const fieldName = event.target.name;
-    this[fieldName] = event.target.value;
+    const objectType = fieldName.split('_')[0];
+    const field = fieldName.split('_')[1];
+
+    if (objectType === 'acc') {
+      this.accountData[field] = event.target.value;
+    } else if (objectType === 'con') {
+      this.contactData[field] = event.target.value;
+    } else if (objectType === 'opp') {
+      this.opportunityData[field] = event.target.value;
+    }
   }
 
   handleSave() {
-    createAccount({
-      Name: this.accountName,
-      Phone: this.accphone,
-      Website: this.accweb,
-      Industry: this.accind,
-      Description: this.accrdesc,
-      Rating: this.accrating
-    })
+    createAccount(this.accountData)
       .then((accountId) => {
         this.newAccountId = accountId;
-        return createContact({
-          FirstName: this.firstName,
-          LastName: this.lastName,
-          Phone: this.conPhone,
-          AccountId: accountId,
-          Title: this.contitle,
-          Email: this.conemail
-        });
+        this.contactData.AccountId = accountId;
+        return createContact(this.contactData);
       })
       .then((contactId) => {
-        return createOpportunity({
-          Account_Name__c: this.newAccountId,
-          Stage__c: this.oppstagename,
-          Close_Date__c: this.oppclosedate,
-          Contact_Name__c: contactId,
-          Email__c: this.oppemail
-        });
+        this.opportunityData.AccountId = this.newAccountId;
+        this.opportunityData.ContactId = contactId;
+        return createOpportunity(this.opportunityData);
       })
       .then(() => {
         this.showToast(
@@ -67,7 +64,7 @@ export default class AccConOpp extends NavigationMixin(LightningElement) {
         this.navigateAfterSave();
       })
       .catch((error) => {
-        this.showToast("Error", error.body.message, "Error");
+        this.showToast("Error", error.body.message, "error");
       });
   }
 

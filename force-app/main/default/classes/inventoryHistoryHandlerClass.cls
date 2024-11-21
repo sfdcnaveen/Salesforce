@@ -1,6 +1,6 @@
 public class inventoryHistoryHandlerClass {
     public static void createInventoryHistoryFromInvoiceLineProduct(list<InvoiceLineProduct__c> invlist){
-        
+        /*
         Set<Id> iliIds= new Set<Id>();
         for(InvoiceLineProduct__c il: invlist){
         	iliIds.add(il.Id);
@@ -22,5 +22,27 @@ public class inventoryHistoryHandlerClass {
         if(!ihLi.isEmpty()){
 			insert ihLi;
         } 
+	*/
+        
+        list<InventoryHistory__c> inhist= new list<InventoryHistory__c>();
+        set<Id> invo= new set<Id>();
+        for(InvoiceLineProduct__c aa: invlist){
+            if(aa.Invoice_Name__c!= null){
+                invo.add(aa.Id);
+            }
+        }
+        for(InvoiceLineProduct__c aa: [select id, Product__c,Quantity__c,Invoice_Name__c,Invoice_Name__r.Ware_House__c from InvoiceLineProduct__c where Id IN :invo]){
+            for(Inventory__c cc: [select Id,Product__c from Inventory__c where Warehouse__c= :aa.Invoice_Name__r.Ware_House__c AND Product__c= :aa.Product__c ]){
+                InventoryHistory__c bb= new InventoryHistory__c();
+                bb.Invoice_Line_Item__c= aa.Id;
+                bb.Invoiced_line_item_Quantity__c= aa.Quantity__c;
+                bb.Inventory__c= cc.Id;
+                bb.Product__c= cc.Product__c;
+                System.debug('Inventory History'+bb);
+                inhist.add(bb);
+            }
+        }
+        insert inhist; 
+
     }
 }
