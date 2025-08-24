@@ -51,7 +51,7 @@ export default class BoatReviews extends NavigationMixin(LightningElement) {
                 this.isLoading = false;
             });
         } else {
-            return;
+            
         }
     }
 
